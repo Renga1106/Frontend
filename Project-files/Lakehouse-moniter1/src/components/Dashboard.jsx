@@ -3,6 +3,8 @@ import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area, X
 import { Activity, Database, CheckCircle, AlertTriangle, TrendingUp, DollarSign, Layers, GitBranch, ChevronDown, ChevronUp } from 'lucide-react';
 import KPICard from './KPICard';
 import { generatePipelineData, generateStorageData, generateCostData, dqDistribution, incidentData } from '../utils/mockData';
+import { KPI_ICONS } from '../utils/kpiIcons';
+
 
 
 const CustomTooltip = ({ active, payload, label }) => {
@@ -507,7 +509,7 @@ const Dashboard = () => {
           subtitle="Avg lag: 12 min"
           trend={-0.5}
           color="from-blue-500 to-cyan-600"
-          icon={Database}
+          icon={KPI_ICONS.DATA_FRESHNESS}
         />
       </div>
 
