@@ -7,7 +7,8 @@ import {
   Cpu,
   Timer,
   HardDrive,
-  CheckCircle
+  CheckCircle,
+  Target
 } from "lucide-react";
 
 import KPICard from "./KPICard";
@@ -74,7 +75,7 @@ const Dashboard2 = () => {
             subtitle="8,542 checks passed"
             trend={0.8}
             color="from-purple-500 to-purple-600"
-            icon={Activity}
+            icon={Target}
           />
 
           <KPICard
