@@ -12,6 +12,9 @@ import {
 } from "lucide-react";
 
 import KPICard from "./KPICard";
+import DataQualityIcon from "./DataQualityIcon";
+import AnomalyDetectionIcon from "./AnomalyDetectionIcon";
+import IncidentSLAComplianceIcon from "./IncidentSLAComplianceIcon";
 
 const Dashboard2 = () => {
   return (
@@ -75,7 +78,7 @@ const Dashboard2 = () => {
             subtitle="8,542 checks passed"
             trend={0.8}
             color="from-purple-500 to-purple-600"
-            icon={Target}
+            icon={DataQualityIcon}
           />
 
           <KPICard
@@ -84,7 +87,7 @@ const Dashboard2 = () => {
             subtitle="Detected (7 days)"
             trend={-2.1}
             color="from-amber-500 to-orange-600"
-            icon={AlertTriangle}
+            icon={AnomalyDetectionIcon}
           />
 
           <KPICard
@@ -102,7 +105,7 @@ const Dashboard2 = () => {
             subtitle="Resolved within SLA"
             trend={1.6}
             color="from-teal-500 to-emerald-600"
-            icon={CheckCircle}
+            icon={IncidentSLAComplianceIcon}
           />
         </div>
       </section>
