@@ -19,6 +19,14 @@ const Dashboard2 = () => {
   return (
     <div className="space-y-4">
 
+      {/* Page label */}
+<div className="mb-2">
+  <span className="text-lg font-bold text-gray-900">
+    Overview
+  </span>
+</div>
+
+
       {/* PLATFORM HEALTH */}
       <section>
         <h3 className="text-base font-semibold text-gray-800 mb-2">

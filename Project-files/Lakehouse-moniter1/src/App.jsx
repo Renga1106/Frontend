@@ -352,8 +352,8 @@ function DashboardTabs() {
     <div className="space-y-6">
 
       {/* Tabs Header */}
-      <div className="flex gap-6 border-b border-gray-200">
-        <button
+      {/* <div className="flex gap-6 border-b border-gray-200"> */}
+        {/* <button
           onClick={() => setTab("overview")}
           className={`pb-2 text-sm font-semibold ${tab === "overview"
             ? "border-b-2 border-blue-600 text-blue-600"
@@ -361,9 +361,9 @@ function DashboardTabs() {
             }`}
         >
           Overview
-        </button>
+        </button> */}
 
-        <button
+        {/* <button
           onClick={() => setTab("platform")}
           className={`pb-2 text-sm font-semibold ${tab === "platform"
             ? "border-b-2 border-blue-600 text-blue-600"
@@ -371,11 +371,11 @@ function DashboardTabs() {
             }`}
         >
           Platform Metrics
-        </button>
-      </div>
+        </button> */}
+      {/* </div> */}
 
       {/* Tab Content */}
-      {tab === "overview" && <Dashboard />}
+      {/* {tab === "overview" && <Dashboard />} */}
       {tab === "platform" && <Dashboard2 />}
     </div>
   );
