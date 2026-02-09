@@ -150,7 +150,7 @@ export default function PlatformHealthIncidents() {
             <h3 className="text-xl font-semibold text-gray-900">Platform Health & Incidents</h3>
 
             {/* KPI Cards Row */}
-            <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
                 <KPICard
                     icon={AlertOctagon}
                     title="Critical Alerts"
@@ -166,14 +166,6 @@ export default function PlatformHealthIncidents() {
                     trend="+2%"
                     color="from-orange-500 to-orange-600"
                     subtitle={<span className="text-xs text-gray-600">Alerts that repeated within 2 days</span>}
-                />
-                <KPICard
-                    icon={DataQualityIcon}
-                    title="Data Quality Health"
-                    value="96.8%"
-                    subtitle={<span className="text-xs text-gray-600">Checks passed across datasets</span>}
-                    trend={0.8}
-                    color="from-purple-500 to-purple-600"
                 />
                 <KPICard
                     icon={Globe}
