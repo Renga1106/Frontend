@@ -100,7 +100,7 @@ export default function App() {
       //   return <Dashboard />;
 
       case 'dashboard':
-        return <DashboardTabs />;
+        return <Dashboard2 />;
 
 
 
