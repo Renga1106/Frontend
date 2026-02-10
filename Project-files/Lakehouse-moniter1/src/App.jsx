@@ -102,6 +102,8 @@ export default function App() {
       case 'dashboard':
         return <DashboardTabs />;
 
+
+
       // case 'monitoring':
       //   return <MonitoringView />;
       // case 'logging':
@@ -266,9 +268,18 @@ export default function App() {
                 {hasSubmenu && !sidebarCollapsed && isExpanded && (
                   <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-2">
                     {item.submenu.map(subitem => (
+                      // <button
+                      //   key={subitem.id}
+                      //   onClick={() => setActiveTab(subitem.id)}
                       <button
                         key={subitem.id}
-                        onClick={() => setActiveTab(subitem.id)}
+                        onClick={() => {
+                          setActiveTab(subitem.id);
+                          setExpandedMenus(prev => ({
+                            ...prev,
+                            'platform-health': true
+                          }));
+                        }}
                         className={`w-full text-left px-3 py-2 rounded-lg transition-all text-sm ${activeTab === subitem.id
                           ? 'bg-blue-100 text-blue-700 font-medium'
                           : 'text-gray-600 hover:bg-gray-100'
