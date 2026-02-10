@@ -6,8 +6,8 @@ import {
     XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer
 } from 'recharts';
 
-console.log("🚨 PipelineSLAPerformance RENDERED");
-
+//console.log("🚨 PipelineSLAPerformance RENDERED");
+//New Pipeline performace tab
 // Helper to get last 7 dates
 const getLast7Days = () => {
     const dates = [];
