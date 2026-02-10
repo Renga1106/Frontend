@@ -7,9 +7,8 @@ const KPICard = ({ title, value, subtitle, trend, color, icon: Icon }) => (
         <Icon className="w-6 h-6 text-white" />
       </div>
       {trend && (
-        <span className={`text-sm font-semibold px-2 py-1 rounded ${
-          trend > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
-        }`}>
+        <span className={`text-sm font-semibold px-2 py-1 rounded ${trend > 0 ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+          }`}>
           {trend > 0 ? '↑' : '↓'} {Math.abs(trend)}%
         </span>
       )}
