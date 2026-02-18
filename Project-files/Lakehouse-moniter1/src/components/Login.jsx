@@ -32,7 +32,7 @@ export default function Login({ onLogin }) {
             Email address
           </label>
           <input
-            type="Email"
+            type="email"
             placeholder="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -47,7 +47,7 @@ export default function Login({ onLogin }) {
             Password
           </label>
           <input
-            type="Password"
+            type="password"
             placeholder="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

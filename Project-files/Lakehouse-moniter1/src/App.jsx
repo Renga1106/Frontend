@@ -96,11 +96,11 @@ export default function App() {
 
   const renderContent = () => {
     switch (activeTab) {
-      // case 'dashboard':
-      //   return <Dashboard />;
-
       case 'dashboard':
-        return <Dashboard2 />;
+        return <Dashboard />;
+
+      // case 'dashboard':
+      //   return <Dashboard2 />;
 
 
 
@@ -364,7 +364,7 @@ function DashboardTabs() {
 
       {/* Tabs Header */}
       {/* <div className="flex gap-6 border-b border-gray-200"> */}
-        {/* <button
+      {/* <button
           onClick={() => setTab("overview")}
           className={`pb-2 text-sm font-semibold ${tab === "overview"
             ? "border-b-2 border-blue-600 text-blue-600"
@@ -374,7 +374,7 @@ function DashboardTabs() {
           Overview
         </button> */}
 
-        {/* <button
+      {/* <button
           onClick={() => setTab("platform")}
           className={`pb-2 text-sm font-semibold ${tab === "platform"
             ? "border-b-2 border-blue-600 text-blue-600"
