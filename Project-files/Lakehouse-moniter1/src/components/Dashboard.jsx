@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,  } from 'recharts';
+import { LineChart, Line, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, } from 'recharts';
 import { Activity, Database, CheckCircle, AlertTriangle, TrendingUp, DollarSign, Layers, GitBranch, ChevronDown, ChevronUp } from 'lucide-react';
 import KPICard from './KPICard';
 import { generatePipelineData, generateStorageData, generateCostData, dqDistribution, incidentData } from '../utils/mockData';
@@ -15,8 +15,8 @@ const CustomTooltip = ({ active, payload, label }) => {
         {payload.map((entry, index) => (
           <div key={index} className="flex items-center justify-between gap-4 text-xs">
             <div className="flex items-center gap-2">
-              <div 
-                className="w-2 h-2 rounded-full" 
+              <div
+                className="w-2 h-2 rounded-full"
                 style={{ backgroundColor: entry.color }}
               ></div>
               <span className="text-gray-600 capitalize">{entry.name}:</span>
@@ -45,12 +45,12 @@ const CustomPieTooltip = ({ active, payload }) => {
     const data = payload[0];
     const total = 1262; // Sum of all values (1231 + 23 + 8)
     const percentage = ((data.value / total) * 100).toFixed(1);
-    
+
     return (
       <div className="bg-white p-3 rounded-lg shadow-lg border border-gray-200">
         <div className="flex items-center gap-2 mb-2">
-          <div 
-            className="w-3 h-3 rounded-full" 
+          <div
+            className="w-3 h-3 rounded-full"
             style={{ backgroundColor: data.payload.color }}
           ></div>
           <p className="text-sm font-semibold text-gray-700 capitalize">{data.name}</p>
@@ -75,7 +75,7 @@ const CustomPieTooltip = ({ active, payload }) => {
 
 const PipelineHealthCard = () => {
   const [expanded, setExpanded] = useState(false);
-  
+
   const miniData = [
     { name: '1', success: 98, failed: 2, delayed: 10 },
     { name: '2', success: 97, failed: 3, delayed: 20 },
@@ -104,7 +104,7 @@ const PipelineHealthCard = () => {
             <p className="text-2xl font-bold text-gray-900">98.7%</p>
           </div>
         </div>
-        <button 
+        <button
           onClick={() => setExpanded(!expanded)}
           className="p-1 hover:bg-gray-100 rounded transition-colors"
         >
@@ -152,7 +152,7 @@ const PipelineHealthCard = () => {
           {/* Expanded Donut Chart */}
           <ResponsiveContainer width="100%" height={140}>
             <PieChart>
-                <Tooltip content={<CustomPieTooltip />} />
+              <Tooltip content={<CustomPieTooltip />} />
               <Pie
                 data={statsData}
                 cx="50%"
@@ -166,7 +166,7 @@ const PipelineHealthCard = () => {
                   <Cell key={`cell-${index}`} fill={entry.color} />
                 ))}
               </Pie>
-              
+
             </PieChart>
           </ResponsiveContainer>
 
@@ -205,9 +205,10 @@ const PipelineHealthCard = () => {
 };
 
 
+
 const StorageMetricsCard = () => {
   const [expanded, setExpanded] = useState(false);
-  
+
   const trendData = [
     { day: '1', total: 1500, consumed: 847, available: 653 },
     { day: '2', total: 1500, consumed: 862, available: 638 },
@@ -237,7 +238,7 @@ const StorageMetricsCard = () => {
             <p className="text-2xl font-bold text-gray-900">1,500 TB</p>
           </div>
         </div>
-        <button 
+        <button
           onClick={() => setExpanded(!expanded)}
           className="p-1 hover:bg-gray-100 rounded transition-colors"
         >
@@ -256,12 +257,12 @@ const StorageMetricsCard = () => {
                 <Tooltip content={<CustomTooltip />} />
                 <defs>
                   <linearGradient id="consumedGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.1}/>
+                    <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="#3b82f6" stopOpacity={0.1} />
                   </linearGradient>
                   <linearGradient id="availableGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#10b981" stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor="#10b981" stopOpacity={0.1}/>
+                    <stop offset="5%" stopColor="#10b981" stopOpacity={0.8} />
+                    <stop offset="95%" stopColor="#10b981" stopOpacity={0.1} />
                   </linearGradient>
                 </defs>
                 <Area type="monotone" dataKey="consumed" stroke="#3b82f6" fill="url(#consumedGrad)" />
@@ -300,7 +301,7 @@ const StorageMetricsCard = () => {
           {/* Expanded Donut Chart */}
           <ResponsiveContainer width="100%" height={140}>
             <PieChart>
-            <Tooltip content={<CustomPieTooltip />} />
+              <Tooltip content={<CustomPieTooltip />} />
               <Pie
                 data={donutData}
                 cx="50%"
@@ -358,7 +359,7 @@ const StorageMetricsCard = () => {
 
 const IncidentHealthCard = () => {
   const [expanded, setExpanded] = useState(false);
-  
+
   const incidentTrendData = [
     { day: '1', open: 32, resolved: 28 },
     { day: '2', open: 30, resolved: 25 },
@@ -387,7 +388,7 @@ const IncidentHealthCard = () => {
             <p className="text-2xl font-bold text-gray-900">28</p>
           </div>
         </div>
-        <button 
+        <button
           onClick={() => setExpanded(!expanded)}
           className="p-1 hover:bg-gray-100 rounded transition-colors"
         >
@@ -434,7 +435,7 @@ const IncidentHealthCard = () => {
           {/* Expanded Priority Donut */}
           <ResponsiveContainer width="100%" height={120}>
             <PieChart>
-                <Tooltip content={<CustomPieTooltip />} />
+              <Tooltip content={<CustomPieTooltip />} />
               <Pie
                 data={priorityData}
                 cx="50%"
@@ -513,9 +514,9 @@ const Dashboard = () => {
         />
       </div>
 
-    {/* Operational & Incident Health Section */}
+      {/* Operational & Incident Health Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <IncidentHealthCard/>
+        <IncidentHealthCard />
         <KPICard
           title="Daily Cost"
           value="$4,287"
@@ -568,16 +569,16 @@ const Dashboard = () => {
           <AreaChart data={pipelineData}>
             <defs>
               <linearGradient id="colorSuccess" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#10b981" stopOpacity={0.8}/>
-                <stop offset="95%" stopColor="#10b981" stopOpacity={0.1}/>
+                <stop offset="5%" stopColor="#10b981" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#10b981" stopOpacity={0.1} />
               </linearGradient>
               <linearGradient id="colorFailed" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#ef4444" stopOpacity={0.8}/>
-                <stop offset="95%" stopColor="#ef4444" stopOpacity={0.1}/>
+                <stop offset="5%" stopColor="#ef4444" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#ef4444" stopOpacity={0.1} />
               </linearGradient>
               <linearGradient id="colorDelayed" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.8}/>
-                <stop offset="95%" stopColor="#f59e0b" stopOpacity={0.1}/>
+                <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.8} />
+                <stop offset="95%" stopColor="#f59e0b" stopOpacity={0.1} />
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />

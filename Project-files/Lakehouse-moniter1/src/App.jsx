@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Activity, Database, TrendingUp, GitBranch, Layers, ChevronLeft, ChevronRight, ChevronDown, BarChart3, AlertCircle, Zap, HeartPulse } from 'lucide-react';
 
 import Dashboard from './components/Dashboard';
+import Dashboard3 from './components/Dashboard3';
 
 import Dashboard2 from './components/Dashboard2';
 
@@ -90,10 +91,15 @@ export default function App() {
   const renderContent = () => {
     switch (activeTab) {
       case 'dashboard':
-        return <Dashboard />;
+        return <Dashboard3 />;
 
       // case 'dashboard':
       //   return <Dashboard2 />;
+
+      // case 'dashboard':
+      //   return <Dashboard />;
+
+
 
 
 
