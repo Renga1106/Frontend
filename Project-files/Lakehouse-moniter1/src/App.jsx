@@ -20,6 +20,7 @@ import PipelineJobMonitoring from './components/PipelineJobMonitoring'
 import Login from './components/Login';
 import PlatformHealthIncidents from './components/PlatformHealthIncidents';
 import PipelineSLAPerformance from './components/PipelineSLAPerformance';
+import PlatformHealthCombined from './components/PlatformHealthCombined';
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -44,15 +45,7 @@ export default function App() {
         { id: 'ticket-sla', label: 'Ticket SLA Monitoring' }
       ]
     },
-    {
-      id: 'platform-health',
-      label: 'Platform Health',
-      icon: HeartPulse,
-      submenu: [
-        { id: 'platform-health-incidents', label: 'Platform Health & Incidents' },
-        { id: 'platform-health-sla', label: 'Pipeline & SLA Performance' }
-      ]
-    },
+    { id: 'platform-health', label: 'Platform Health', icon: HeartPulse },
     {
       id: 'logging',
       label: 'Logging',
@@ -114,10 +107,8 @@ export default function App() {
       //   return <VisualizationView />;
       case 'pipeline-monitoring':
         return < PipelineJobMonitoring />;
-      case 'platform-health-incidents':
-        return <PlatformHealthIncidents />;
-      case 'platform-health-sla':
-        return <PipelineSLAPerformance />;
+      case 'platform-health':
+        return <PlatformHealthCombined />;
       // case 'data-freshness':
       //   return <ContentView title="Data Freshness & SLA Monitoring" description="Track freshness delay, SLA adherence, late-arriving data, and stale dataset alerts." />;
       case 'infra-monitoring':
@@ -155,14 +146,14 @@ export default function App() {
     <div className="flex h-screen bg-gray-50">
       {/* Sidebar */}
       <div
-        className={`bg-white border-r border-gray-200 transition-all duration-300 flex flex-col ${sidebarCollapsed ? 'w-20' : 'w-64'
+        className={`bg-white border-r border-gray-200 transition-all duration-300 ease-in-out flex flex-col overflow-hidden ${sidebarCollapsed ? 'w-20' : 'w-64'
           }`}
       >
         {/* Header */}
         <div className="p-4 border-b border-gray-200">
           <div className="flex items-center justify-between">
             {!sidebarCollapsed && (
-              <div>
+              <div className="transition-opacity duration-200 ease-in-out" style={{ opacity: sidebarCollapsed ? 0 : 1 }}>
                 <img width={150} height={100} src='./src/assets/PictureGanit.jpg'></img>
                 {/* <h1 className="text-lg font-bold text-gray-900">LakeMonitor</h1> */}
               </div>
@@ -218,11 +209,7 @@ export default function App() {
                       return;
                     }
 
-                    if (item.id === 'platform-health') {
-                      setActiveTab('platform-health-incidents');
-                      setExpandedMenus(prev => ({ ...prev, 'platform-health': true }));
-                      return;
-                    }
+                    // Platform Health is now a single nav item, no submenu expansion needed
 
                     setActiveTab(item.id);
                   }}
@@ -234,7 +221,7 @@ export default function App() {
 
 
 
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all cursor-pointer ${isActive
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-200 ease-in-out cursor-pointer ${isActive
                     ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                     : 'text-gray-700 hover:bg-gray-100'
                     } ${sidebarCollapsed ? 'justify-center' : ''}`}
@@ -266,7 +253,7 @@ export default function App() {
 
                 {/* Submenu */}
                 {hasSubmenu && !sidebarCollapsed && isExpanded && (
-                  <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-2">
+                  <div className="ml-4 mt-1 space-y-1 border-l-2 border-gray-200 pl-2 transition-all duration-200 ease-in-out">
                     {item.submenu.map(subitem => (
                       // <button
                       //   key={subitem.id}
